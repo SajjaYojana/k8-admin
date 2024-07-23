@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::533267126079:role/eksctl-expense1-nodegroup-expense-NodeInstanceRole-RVGnoIQA6fBN
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - expense-pod-reader
+      userarn: arn:aws:iam::533267126079:user/yc
+      username: yc    
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-07-23T16:29:05Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1293"
+  uid: 19551238-3940-4d19-a778-2aaa34382807
